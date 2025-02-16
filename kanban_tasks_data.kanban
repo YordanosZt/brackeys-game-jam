@@ -1,0 +1,48 @@
+{
+	"categories": [
+		{
+			"uuid": "348186f0-2dab-46b0-a320-362eb39412e2",
+			"title": "Task",
+			"color": "70bafa"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "b78cf435-8cec-40a9-b47b-abd6fad60ae3",
+			"title": "Todo",
+			"tasks": []
+		},
+		{
+			"uuid": "da0b7750-520b-4c4f-a2b7-a3504521acd6",
+			"title": "Doing",
+			"tasks": []
+		},
+		{
+			"uuid": "0a5a720c-8ac4-469f-886c-b20048414b2e",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "947138fe-9dc7-44a4-bc2b-d71ebc2377fd",
+			"title": "Player Controller",
+			"description": "",
+			"category": "348186f0-2dab-46b0-a320-362eb39412e2",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"b78cf435-8cec-40a9-b47b-abd6fad60ae3"
+			],
+			[
+				"da0b7750-520b-4c4f-a2b7-a3504521acd6"
+			],
+			[
+				"0a5a720c-8ac4-469f-886c-b20048414b2e"
+			]
+		]
+	}
+}
