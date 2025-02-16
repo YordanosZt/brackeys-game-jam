@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://lucm30hvu5ua"]
+
+[ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_5246q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sygap"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ui2dn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6p3ls"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_voyk0"]
+size = Vector3(0.54, 0.21, 0.31)
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_5246q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_sygap")
+
+[node name="Visuals" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="BodyMesh" type="MeshInstance3D" parent="Visuals"]
+mesh = SubResource("CapsuleMesh_ui2dn")
+skeleton = NodePath("../..")
+
+[node name="EyesMesh" type="MeshInstance3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500745, 0.415284)
+material_override = SubResource("StandardMaterial3D_6p3ls")
+mesh = SubResource("BoxMesh_voyk0")
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866026, 0.5, -0.707107, -0.353553, 0.612372, 0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17)
+projection = 1
+size = 20.0
+near = 0.001

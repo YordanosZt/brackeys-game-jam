@@ -10,7 +10,9 @@
 		{
 			"uuid": "b78cf435-8cec-40a9-b47b-abd6fad60ae3",
 			"title": "Todo",
-			"tasks": []
+			"tasks": [
+				"f2902466-9ebd-4db1-a65b-1dd5501eb03e"
+			]
 		},
 		{
 			"uuid": "da0b7750-520b-4c4f-a2b7-a3504521acd6",
@@ -25,8 +27,8 @@
 	],
 	"tasks": [
 		{
-			"uuid": "947138fe-9dc7-44a4-bc2b-d71ebc2377fd",
-			"title": "Player Controller",
+			"uuid": "f2902466-9ebd-4db1-a65b-1dd5501eb03e",
+			"title": "Isometric Controller",
 			"description": "",
 			"category": "348186f0-2dab-46b0-a320-362eb39412e2",
 			"steps": []

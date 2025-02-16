@@ -1,3 +1,106 @@
-[gd_scene format=3 uid="uid://depptuwko0flo"]
+[gd_scene load_steps=11 format=3 uid="uid://depptuwko0flo"]
+
+[ext_resource type="Texture2D" uid="uid://ck5ilcyatnqww" path="res://Assets/Textures/Prototype/Dark/texture_09.png" id="1_vxdwd"]
+[ext_resource type="PackedScene" uid="uid://lucm30hvu5ua" path="res://Entities/Player/player.tscn" id="2_awfes"]
+[ext_resource type="Texture2D" uid="uid://yaffm40y2efa" path="res://Assets/Textures/Prototype/Orange/texture_06.png" id="3_lmven"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6uwx3"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_0ssmc"]
+sky_material = SubResource("ProceduralSkyMaterial_6uwx3")
+
+[sub_resource type="Environment" id="Environment_8tll8"]
+background_mode = 2
+sky = SubResource("Sky_0ssmc")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a13nc"]
+albedo_texture = ExtResource("1_vxdwd")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3lv8g"]
+size = Vector3(500, 1, 500)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wajtr"]
+albedo_texture = ExtResource("3_lmven")
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xmfgn"]
+size = Vector3(5, 5, 5)
 
 [node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8tll8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_awfes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445016, 0)
+
+[node name="Env" type="Node3D" parent="."]
+
+[node name="Ground" type="CSGBox3D" parent="Env"]
+size = Vector3(500, 1, 500)
+material = SubResource("StandardMaterial3D_a13nc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Ground/StaticBody3D"]
+shape = SubResource("BoxShape3D_3lv8g")
+
+[node name="Block" type="CSGBox3D" parent="Env"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -14.6975)
+material_override = SubResource("StandardMaterial3D_wajtr")
+size = Vector3(5, 5, 5)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Block"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Block/StaticBody3D"]
+shape = SubResource("BoxShape3D_xmfgn")
+
+[node name="Block2" type="CSGBox3D" parent="Env"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8563, 3, -2.67807)
+material_override = SubResource("StandardMaterial3D_wajtr")
+size = Vector3(5, 5, 5)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Block2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Block2/StaticBody3D"]
+shape = SubResource("BoxShape3D_xmfgn")
+
+[node name="Block3" type="CSGBox3D" parent="Env"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.433, 3, 30.6758)
+material_override = SubResource("StandardMaterial3D_wajtr")
+size = Vector3(5, 5, 5)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Block3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Block3/StaticBody3D"]
+shape = SubResource("BoxShape3D_xmfgn")
+
+[node name="Block4" type="CSGBox3D" parent="Env"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9257, 3, 17.4545)
+material_override = SubResource("StandardMaterial3D_wajtr")
+size = Vector3(5, 5, 5)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Block4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Block4/StaticBody3D"]
+shape = SubResource("BoxShape3D_xmfgn")
+
+[node name="Block5" type="CSGBox3D" parent="Env"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3442, 3, -3.88002)
+material_override = SubResource("StandardMaterial3D_wajtr")
+size = Vector3(5, 5, 5)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Block5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Block5/StaticBody3D"]
+shape = SubResource("BoxShape3D_xmfgn")
