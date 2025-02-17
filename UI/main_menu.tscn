@@ -1,0 +1,152 @@
+[gd_scene load_steps=6 format=3 uid="uid://g2csqisbtle1"]
+
+[ext_resource type="Script" path="res://UI/main_menu.gd" id="1_vcljt"]
+[ext_resource type="PackedScene" uid="uid://depptuwko0flo" path="res://Scenes/world.tscn" id="2_3xlyu"]
+
+[sub_resource type="Animation" id="Animation_5l2x7"]
+resource_name = "fadein"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeIn:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0705882, 0.0705882, 0.0705882, 0), Color(0.0705882, 0.0705882, 0.0705882, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"change_scene"
+}, {
+"args": [],
+"method": &"change_scene"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FadeIn:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_b1mfb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeIn:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0705882, 0.0705882, 0.0705882, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeIn:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q6e64"]
+_data = {
+"RESET": SubResource("Animation_b1mfb"),
+"fadein": SubResource("Animation_5l2x7")
+}
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_vcljt")
+first_scene = ExtResource("2_3xlyu")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.906493, 0.906493, 0.906493, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.294118)
+theme_override_colors/font_outline_color = Color(0.140447, 0.140447, 0.140447, 1)
+theme_override_constants/shadow_offset_x = -10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 60
+theme_override_constants/shadow_outline_size = 60
+theme_override_font_sizes/font_size = 100
+text = "I'm not drunk! You are!"
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 45
+
+[node name="StartBtn" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 55
+text = "Start"
+
+[node name="ExitBtn" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 55
+text = "Exit
+"
+
+[node name="FadeIn" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0705882, 0.0705882, 0.0705882, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_q6e64")
+}
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ExitBtn" to="." method="_on_exit_btn_pressed"]
