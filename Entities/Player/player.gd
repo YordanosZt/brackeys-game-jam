@@ -10,7 +10,7 @@ var isometric_right: Vector2 = Vector2(1, -1).normalized()
 @onready var rotate_pivot: Marker3D = %RotatePivot
 @onready var item_pos: Marker3D = %ItemPos
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	handle_input()
 
 func _physics_process(delta: float) -> void:
@@ -34,8 +34,8 @@ func move(delta) -> void:
 
 func look() -> void:
 	if direction:
-		rotate_pivot.look_at(global_position - Vector3(direction.x, 0, direction.y))
-		rotate_pivot.rotation.x = 0
+		var rot: float = atan2(direction.x, direction.y)
+		rotate_pivot.rotation.y = lerp_angle(rotate_pivot.rotation.y, rot, 0.1)
 
 func _on_item_detector_area_entered(area: Area3D) -> void:
 	if item_pos.get_child_count() > 0: return
