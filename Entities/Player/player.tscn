@@ -58,12 +58,49 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500745, 0.415284)
 material_override = SubResource("StandardMaterial3D_6p3ls")
 mesh = SubResource("BoxMesh_voyk0")
 
+[node name="EffectsTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="EffectDelayTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="SpeedLabel" type="Label" parent="CanvasLayer"]
+[node name="VisionEffect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.117647, 0.117647, 0.792157)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+
+[node name="SpeedLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 41
 text = "Speed: "
 
+[node name="RandomEffectsLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+text = "Effect:"
+
+[node name="EffectsTimerLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+text = "Effect:"
+
+[node name="EffectDelayLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+text = "Effect:"
+
 [connection signal="area_entered" from="ItemDetector" to="." method="_on_item_detector_area_entered"]
+[connection signal="timeout" from="EffectsTimer" to="." method="_on_effects_timer_timeout"]
+[connection signal="timeout" from="EffectDelayTimer" to="." method="_on_effect_delay_timer_timeout"]
