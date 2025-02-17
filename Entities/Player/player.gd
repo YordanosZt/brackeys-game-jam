@@ -4,11 +4,11 @@ extends CharacterBody3D
 
 var input_dir: Vector2
 var direction: Vector2
-
-@onready var visuals: Node3D = %Visuals
-
 var isometric_up: Vector2 = Vector2(1, 1).normalized()
 var isometric_right: Vector2 = Vector2(1, -1).normalized()
+
+@onready var rotate_pivot: Marker3D = %RotatePivot
+@onready var item_pos: Marker3D = %ItemPos
 
 func _process(delta: float) -> void:
 	handle_input()
@@ -34,5 +34,11 @@ func move(delta) -> void:
 
 func look() -> void:
 	if direction:
-		visuals.look_at(global_position - Vector3(direction.x, 0, direction.y))
-		visuals.rotation.x = 0
+		rotate_pivot.look_at(global_position - Vector3(direction.x, 0, direction.y))
+		rotate_pivot.rotation.x = 0
+
+func _on_item_detector_area_entered(area: Area3D) -> void:
+	if item_pos.get_child_count() > 0: return
+	
+	area.set_parent(item_pos)
+	area.position = Vector3.ZERO

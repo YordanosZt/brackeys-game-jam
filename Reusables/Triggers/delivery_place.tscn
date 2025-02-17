@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnu1ovuvexvsk"]
+
+[ext_resource type="Script" path="res://Reusables/Triggers/delivery_place.gd" id="1_2llwx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_26jye"]
+size = Vector3(2, 4, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3sbjn"]
+albedo_color = Color(0.133333, 0.133333, 0.133333, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pt8rt"]
+size = Vector3(2, 4, 0.5)
+
+[node name="DeliveryPlace" type="Area3D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_2llwx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_26jye")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+material_override = SubResource("StandardMaterial3D_3sbjn")
+mesh = SubResource("BoxMesh_pt8rt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

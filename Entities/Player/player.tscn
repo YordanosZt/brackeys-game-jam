@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://lucm30hvu5ua"]
+[gd_scene load_steps=7 format=3 uid="uid://lucm30hvu5ua"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_5246q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sygap"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nqd43"]
+radius = 3.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ui2dn"]
 
@@ -20,19 +23,6 @@ script = ExtResource("1_5246q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_sygap")
 
-[node name="Visuals" type="Node3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="BodyMesh" type="MeshInstance3D" parent="Visuals"]
-mesh = SubResource("CapsuleMesh_ui2dn")
-skeleton = NodePath("../..")
-
-[node name="EyesMesh" type="MeshInstance3D" parent="Visuals"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500745, 0.415284)
-material_override = SubResource("StandardMaterial3D_6p3ls")
-mesh = SubResource("BoxMesh_voyk0")
-
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866026, 0.5, -0.707107, -0.353553, 0.612372, 0, 1, 0)
 
@@ -41,3 +31,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17)
 projection = 1
 size = 20.0
 near = 0.001
+
+[node name="ItemDetector" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ItemDetector"]
+shape = SubResource("SphereShape3D_nqd43")
+
+[node name="RotatePivot" type="Marker3D" parent="."]
+unique_name_in_owner = true
+
+[node name="ItemPos" type="Marker3D" parent="RotatePivot"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.1)
+
+[node name="Visuals" type="Node3D" parent="RotatePivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="BodyMesh" type="MeshInstance3D" parent="RotatePivot/Visuals"]
+mesh = SubResource("CapsuleMesh_ui2dn")
+skeleton = NodePath("../../..")
+
+[node name="EyesMesh" type="MeshInstance3D" parent="RotatePivot/Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500745, 0.415284)
+material_override = SubResource("StandardMaterial3D_6p3ls")
+mesh = SubResource("BoxMesh_voyk0")
+
+[connection signal="area_entered" from="ItemDetector" to="." method="_on_item_detector_area_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://brb6rjd4g0cng"]
+
+[ext_resource type="Script" path="res://Reusables/Item/delivery_item.gd" id="1_4kpwo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_txmds"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lw70g"]
+albedo_color = Color(0.211765, 0.54902, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0app8"]
+
+[node name="DeliveryItem" type="Area3D"]
+collision_layer = 8
+script = ExtResource("1_4kpwo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_txmds")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_lw70g")
+mesh = SubResource("BoxMesh_0app8")
