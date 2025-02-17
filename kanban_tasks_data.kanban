@@ -16,14 +16,16 @@
 			"uuid": "da0b7750-520b-4c4f-a2b7-a3504521acd6",
 			"title": "Doing",
 			"tasks": [
-				"64c10ba3-c5b8-497f-9920-1510233e587d"
+				"eae039cd-4804-443b-b43c-80e0ce0b9192"
 			]
 		},
 		{
 			"uuid": "0a5a720c-8ac4-469f-886c-b20048414b2e",
 			"title": "Done",
 			"tasks": [
-				"f2902466-9ebd-4db1-a65b-1dd5501eb03e"
+				"f2902466-9ebd-4db1-a65b-1dd5501eb03e",
+				"64c10ba3-c5b8-497f-9920-1510233e587d",
+				"0bb120a9-2856-4f7b-a315-df1706e69b6b"
 			]
 		}
 	],
@@ -38,6 +40,20 @@
 		{
 			"uuid": "64c10ba3-c5b8-497f-9920-1510233e587d",
 			"title": "Delivery Item",
+			"description": "",
+			"category": "348186f0-2dab-46b0-a320-362eb39412e2",
+			"steps": []
+		},
+		{
+			"uuid": "0bb120a9-2856-4f7b-a315-df1706e69b6b",
+			"title": "Delivery Point",
+			"description": "",
+			"category": "348186f0-2dab-46b0-a320-362eb39412e2",
+			"steps": []
+		},
+		{
+			"uuid": "eae039cd-4804-443b-b43c-80e0ce0b9192",
+			"title": "Low Acceleration and Deceleration",
 			"description": "",
 			"category": "348186f0-2dab-46b0-a320-362eb39412e2",
 			"steps": []

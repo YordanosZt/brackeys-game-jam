@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
-@export var move_speed: float = 500.0
+@export var move_speed: float = 10.0
+@export var acceleration: float = 10.0
+@export var deceleration: float = 5.0
 
 var input_dir: Vector2
 var direction: Vector2
@@ -26,11 +28,13 @@ func move(delta) -> void:
 	direction = input_dir.x * isometric_right + input_dir.y * isometric_up
 	
 	if direction:
-		velocity.x = direction.x * move_speed * delta
-		velocity.z = direction.y * move_speed * delta
+		velocity.x = move_toward(velocity.x, direction.x * move_speed, acceleration * delta)
+		velocity.z = move_toward(velocity.z, direction.y * move_speed, acceleration * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, move_speed * delta)
-		velocity.z = move_toward(velocity.z, 0, move_speed * delta)
+		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
+		velocity.z = move_toward(velocity.z, 0, deceleration * delta)
+	
+	$CanvasLayer/SpeedLabel.text = "Speed: " + str(int(velocity.length() * 100) / 100.0)
 
 func look() -> void:
 	if direction:

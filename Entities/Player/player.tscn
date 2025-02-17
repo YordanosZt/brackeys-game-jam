@@ -58,4 +58,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500745, 0.415284)
 material_override = SubResource("StandardMaterial3D_6p3ls")
 mesh = SubResource("BoxMesh_voyk0")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SpeedLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 41
+text = "Speed: "
+
 [connection signal="area_entered" from="ItemDetector" to="." method="_on_item_detector_area_entered"]
