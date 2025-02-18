@@ -89,17 +89,14 @@ text = "Speed: "
 [node name="RandomEffectsLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 41
-text = "Effect:"
 
 [node name="EffectsTimerLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 41
-text = "Effect:"
 
 [node name="EffectDelayLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 41
-text = "Effect:"
 
 [connection signal="area_entered" from="ItemDetector" to="." method="_on_item_detector_area_entered"]
 [connection signal="timeout" from="EffectsTimer" to="." method="_on_effects_timer_timeout"]

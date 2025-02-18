@@ -7,6 +7,7 @@ var deceleration: float = 5.0
 var random_effects_count: int = 3
 var rand_effect_idx: int = 0
 var has_effect: bool = false
+var allow_effect: bool = false
 
 var input_dir: Vector2
 var direction: Vector2
@@ -29,7 +30,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	handle_input()
-	handle_random_effects()
+	if allow_effect:
+		handle_random_effects()
 
 func _physics_process(delta: float) -> void:
 	move(delta)
