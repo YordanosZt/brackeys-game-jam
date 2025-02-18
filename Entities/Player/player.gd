@@ -65,6 +65,8 @@ func handle_random_effects() -> void:
 	effects_timer_label.text = "Effect in: " + str(int(effects_timer.time_left * 100) / 100.0)
 	effect_delay_label.text = "Effect gone in: " + str(int(effect_delay_timer.time_left * 100) / 100.0)
 	
+	$CanvasLayer/VisionEffect.visible = false
+	
 	if not has_effect: return
 	
 	match rand_effect_idx:
@@ -83,8 +85,6 @@ func invert_controls() -> void:
 
 func vision_effect() -> void:
 	$CanvasLayer/VisionEffect.visible = true
-	if effect_delay_timer.time_left < 0.01:
-		$CanvasLayer/VisionEffect.visible = false
 
 func dash() -> void:
 	velocity *= 1.5
