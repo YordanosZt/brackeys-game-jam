@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://e8nmx38dxnlj"]
+[gd_scene load_steps=15 format=3 uid="uid://cv1htmqwp4c0"]
 
 [ext_resource type="Script" path="res://Entities/Obstacles/Crowd/crowd.gd" id="1_se4ye"]
 
@@ -42,6 +42,8 @@ albedo_color = Color(0.408164, 0.778423, 0.66026, 1)
 size = Vector3(4.25, 2, 4.25)
 
 [node name="Crowd" type="Area3D"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_se4ye")
 
 [node name="Meshes" type="Node3D" parent="."]
@@ -84,6 +86,3 @@ mesh = SubResource("CapsuleMesh_g5mca")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_vti46")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.961262, 0.275637, 0, -0.275637, 0.961262, 0, 2.26, 5.454)

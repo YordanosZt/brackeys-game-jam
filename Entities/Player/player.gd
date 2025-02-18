@@ -98,6 +98,7 @@ func _on_item_detector_area_entered(area: Area3D) -> void:
 	if item_pos.get_child_count() > 0: return
 	
 	area.set_parent(item_pos)
+	area.equip()
 	area.position = Vector3.ZERO
 
 
@@ -110,4 +111,7 @@ func _on_effects_timer_timeout() -> void:
 func _on_effect_delay_timer_timeout() -> void:
 	effects_timer.start()
 	has_effect = false
-	
+
+func _on_hurt_box_area_entered(area: Area3D) -> void:
+	if item_pos.get_child_count() > 0:
+		item_pos.get_child(0).take_damage(10.0)

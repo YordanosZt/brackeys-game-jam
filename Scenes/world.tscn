@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://yaffm40y2efa" path="res://Assets/Textures/Prototype/Orange/texture_06.png" id="3_lmven"]
 [ext_resource type="PackedScene" uid="uid://brb6rjd4g0cng" path="res://Reusables/Item/delivery_item.tscn" id="4_a2wja"]
 [ext_resource type="PackedScene" uid="uid://cnu1ovuvexvsk" path="res://Reusables/Triggers/delivery_place.tscn" id="5_jyu0a"]
-[ext_resource type="PackedScene" uid="uid://e8nmx38dxnlj" path="res://Entities/Obstacles/Crowd/crowd.tscn" id="7_v5sha"]
+[ext_resource type="PackedScene" uid="uid://cv1htmqwp4c0" path="res://Entities/Obstacles/Crowd/crowd.tscn" id="7_v5sha"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6uwx3"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -115,7 +115,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_awfes")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445016, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273926, 0.445016, -1.31812)
 
 [node name="Env" type="Node3D" parent="."]
 
@@ -129,7 +129,7 @@ material = SubResource("StandardMaterial3D_a13nc")
 shape = SubResource("BoxShape3D_3lv8g")
 
 [node name="Block" type="CSGBox3D" parent="Env"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -14.6975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.6052, 3, 1.65956)
 material_override = SubResource("StandardMaterial3D_wajtr")
 size = Vector3(5, 5, 5)
 
@@ -139,7 +139,7 @@ size = Vector3(5, 5, 5)
 shape = SubResource("BoxShape3D_xmfgn")
 
 [node name="Block2" type="CSGBox3D" parent="Env"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8563, 3, -2.67807)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.4615, 3, 13.679)
 material_override = SubResource("StandardMaterial3D_wajtr")
 size = Vector3(5, 5, 5)
 
@@ -149,7 +149,7 @@ size = Vector3(5, 5, 5)
 shape = SubResource("BoxShape3D_xmfgn")
 
 [node name="Block3" type="CSGBox3D" parent="Env"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.433, 3, 30.6758)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.0382, 3, 47.0329)
 material_override = SubResource("StandardMaterial3D_wajtr")
 size = Vector3(5, 5, 5)
 
@@ -159,7 +159,7 @@ size = Vector3(5, 5, 5)
 shape = SubResource("BoxShape3D_xmfgn")
 
 [node name="Block4" type="CSGBox3D" parent="Env"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9257, 3, 17.4545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.6795, 3, 33.8116)
 material_override = SubResource("StandardMaterial3D_wajtr")
 size = Vector3(5, 5, 5)
 
@@ -169,7 +169,7 @@ size = Vector3(5, 5, 5)
 shape = SubResource("BoxShape3D_xmfgn")
 
 [node name="Block5" type="CSGBox3D" parent="Env"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3442, 3, -3.88002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.261, 3, 12.477)
 material_override = SubResource("StandardMaterial3D_wajtr")
 size = Vector3(5, 5, 5)
 
@@ -179,7 +179,7 @@ size = Vector3(5, 5, 5)
 shape = SubResource("BoxShape3D_xmfgn")
 
 [node name="Table" type="MeshInstance3D" parent="Env"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.756544, 10.2616)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9252, 0.756544, -9.38476)
 mesh = SubResource("BoxMesh_v3t6s")
 skeleton = NodePath("../..")
 
@@ -189,7 +189,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_0w4su")
 
 [node name="Table2" type="MeshInstance3D" parent="Env"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.422, 0.756544, 13.3033)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3765, 0.756544, 1.07967)
 mesh = SubResource("BoxMesh_v3t6s")
 skeleton = NodePath("../..")
 
@@ -199,7 +199,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_0w4su")
 
 [node name="Table3" type="MeshInstance3D" parent="Env"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25815, 0.756542, 21.7305)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.0099, 0.756542, 50.8394)
 mesh = SubResource("BoxMesh_v3t6s")
 skeleton = NodePath("../..")
 
@@ -209,16 +209,16 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_0w4su")
 
 [node name="DeliveryItem" parent="." instance=ExtResource("4_a2wja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 10.2716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9252, 1.5, -9.37476)
 
 [node name="DeliveryItem2" parent="." instance=ExtResource("4_a2wja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.422, 1.5, 13.3133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3765, 1.5, 1.08967)
 
 [node name="DeliveryItem3" parent="." instance=ExtResource("4_a2wja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25815, 1.5, 21.7405)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.0099, 1.5, 50.8494)
 
 [node name="DeliveryPlace" parent="." instance=ExtResource("5_jyu0a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -7)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 119.182, 0, 51.0918)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -266,4 +266,73 @@ theme_override_font_sizes/font_size = 40
 text = "Time:"
 
 [node name="Crowd" parent="." instance=ExtResource("7_v5sha")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0.510895, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.2647, 0.510895, 15.2242)
+
+[node name="Crowd2" parent="." instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.6791, 0.510895, -7.58984)
+
+[node name="Crowd3" parent="." instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.422, 0.510895, 4.93628)
+
+[node name="Crowd4" parent="." instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.2981, 0.510956, 49.84)
+
+[node name="Crowd5" parent="." instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.105, 0.510956, 42.0544)
+
+[node name="Prototype" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Prototype"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24228, 0.0629883, -1.83557)
+use_collision = true
+size = Vector3(20, 1, 50)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Prototype"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74304, 2.98688, -14.9663)
+use_collision = true
+size = Vector3(12.792, 6.97375, 9.35107)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Prototype"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01517, 2.98688, 14.6068)
+use_collision = true
+size = Vector3(12.792, 6.97375, 4.77515)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Prototype"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2457, 1.19, 2.31244)
+use_collision = true
+size = Vector3(1.94751, 3.38, 25.3624)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Prototype"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.174, 0.0145264, 21.6966)
+use_collision = true
+size = Vector3(3.51343, 1, 94.0938)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Prototype"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7982, 1.06274, 36.369)
+use_collision = true
+size = Vector3(1, 3.12549, 67.4353)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Prototype"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.242, 1.06274, 8.854)
+use_collision = true
+size = Vector3(1, 3.12549, 67.4353)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Prototype"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.242, 1.06274, 63.2804)
+use_collision = true
+size = Vector3(1, 3.12549, 12.9609)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Prototype"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 65.0493, 1.06274, 68.6113)
+use_collision = true
+size = Vector3(1, 3.12549, 88.2113)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Prototype"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 65.0493, 1.06274, -23.3744)
+use_collision = true
+size = Vector3(1, 3.12549, 88.2113)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Prototype"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7982, 1.06274, -14.9966)
+use_collision = true
+size = Vector3(1, 3.12549, 18.9087)
