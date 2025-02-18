@@ -254,16 +254,21 @@ theme_override_constants/outline_size = 120
 theme_override_font_sizes/font_size = 141
 text = "Game Paused!"
 
-[node name="TimeLabel" type="Label" parent="CanvasLayer"]
-unique_name_in_owner = true
-anchors_preset = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 12
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 119.0
+offset_top = -4.0
+grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 40
-text = "Time:"
+
+[node name="TimeBar" type="ProgressBar" parent="CanvasLayer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+size_flags_horizontal = 3
+show_percentage = false
 
 [node name="Crowd" parent="." instance=ExtResource("7_v5sha")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.2647, 0.510895, 15.2242)
