@@ -1,0 +1,89 @@
+[gd_scene load_steps=15 format=3 uid="uid://e8nmx38dxnlj"]
+
+[ext_resource type="Script" path="res://Entities/Obstacles/Crowd/crowd.gd" id="1_se4ye"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8weqj"]
+albedo_color = Color(0.24, 0.582, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g5mca"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oatbf"]
+albedo_color = Color(0, 0.839085, 0.241516, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fqogt"]
+radius = 0.64
+height = 1.81
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0on3b"]
+albedo_color = Color(0.62, 0.24, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5g5p3"]
+albedo_color = Color(0.867669, 0.639922, 0.480239, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cbmnq"]
+height = 2.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2e7lx"]
+albedo_color = Color(0.245734, 0.106922, 8.42288e-08, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rbud4"]
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c0qk"]
+albedo_color = Color(1, 0.24, 0.24, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_m41q8"]
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgwk3"]
+albedo_color = Color(0.408164, 0.778423, 0.66026, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vti46"]
+size = Vector3(4.25, 2, 4.25)
+
+[node name="Crowd" type="Area3D"]
+script = ExtResource("1_se4ye")
+
+[node name="Meshes" type="Node3D" parent="."]
+
+[node name="Person1" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_8weqj")
+mesh = SubResource("CapsuleMesh_g5mca")
+
+[node name="Person2" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00995, 0.911734, -0.891136)
+material_override = SubResource("StandardMaterial3D_oatbf")
+mesh = SubResource("CapsuleMesh_fqogt")
+
+[node name="Person3" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534681, 1, -1.27729)
+material_override = SubResource("StandardMaterial3D_0on3b")
+mesh = SubResource("CapsuleMesh_g5mca")
+
+[node name="Person4" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42582, 1.10431, -0.0742613)
+material_override = SubResource("StandardMaterial3D_5g5p3")
+mesh = SubResource("CapsuleMesh_cbmnq")
+
+[node name="Person5" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08891, 0.751844, 1.41097)
+material_override = SubResource("StandardMaterial3D_2e7lx")
+mesh = SubResource("CapsuleMesh_rbud4")
+
+[node name="Person6" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.608944, 0.903687, 1.307)
+material_override = SubResource("StandardMaterial3D_4c0qk")
+mesh = SubResource("CapsuleMesh_m41q8")
+
+[node name="Person7" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48523, 1, 0.32675)
+material_override = SubResource("StandardMaterial3D_hgwk3")
+mesh = SubResource("CapsuleMesh_g5mca")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_vti46")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.961262, 0.275637, 0, -0.275637, 0.961262, 0, 2.26, 5.454)

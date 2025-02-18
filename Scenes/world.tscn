@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://depptuwko0flo"]
+[gd_scene load_steps=20 format=3 uid="uid://depptuwko0flo"]
 
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_118dv"]
 [ext_resource type="Texture2D" uid="uid://ck5ilcyatnqww" path="res://Assets/Textures/Prototype/Dark/texture_09.png" id="1_vxdwd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://yaffm40y2efa" path="res://Assets/Textures/Prototype/Orange/texture_06.png" id="3_lmven"]
 [ext_resource type="PackedScene" uid="uid://brb6rjd4g0cng" path="res://Reusables/Item/delivery_item.tscn" id="4_a2wja"]
 [ext_resource type="PackedScene" uid="uid://cnu1ovuvexvsk" path="res://Reusables/Triggers/delivery_place.tscn" id="5_jyu0a"]
+[ext_resource type="PackedScene" uid="uid://e8nmx38dxnlj" path="res://Entities/Obstacles/Crowd/crowd.tscn" id="7_v5sha"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6uwx3"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -252,3 +253,6 @@ layout_mode = 2
 theme_override_constants/outline_size = 120
 theme_override_font_sizes/font_size = 141
 text = "Game Paused!"
+
+[node name="Crowd" parent="." instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0.510895, 6)
