@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://depptuwko0flo"]
+[gd_scene load_steps=25 format=3 uid="uid://depptuwko0flo"]
 
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_118dv"]
 [ext_resource type="Texture2D" uid="uid://ck5ilcyatnqww" path="res://Assets/Textures/Prototype/Dark/texture_09.png" id="1_vxdwd"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cqsr6amxf6wgr" path="res://Reusables/Spawner/spawner.tscn" id="8_2xre1"]
 [ext_resource type="PackedScene" uid="uid://ba4o2w5oylmo3" path="res://Entities/Obstacles/Car/car.tscn" id="9_0q6y6"]
 [ext_resource type="PackedScene" uid="uid://lkuvduowuktr" path="res://Entities/Obstacles/Dog/dog.tscn" id="10_ytiwx"]
+[ext_resource type="PackedScene" uid="uid://ch6teikhi35gc" path="res://Entities/Obstacles/Puddle/slippery_puddle.tscn" id="11_ywml3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6uwx3"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -365,3 +366,6 @@ curve = SubResource("Curve3D_70t38")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Dog/Path3D"]
 transform = Transform3D(-0.999977, 0, 0.00673399, 0, 1, 0, -0.00673399, 0, -0.999977, -0.109234, 0, -16.4945)
+
+[node name="SlipperyPuddle" parent="." instance=ExtResource("11_ywml3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.5676, 0.341675, 37.8175)

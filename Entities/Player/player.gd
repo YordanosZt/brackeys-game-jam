@@ -115,3 +115,15 @@ func _on_effect_delay_timer_timeout() -> void:
 func _on_hurt_box_area_entered(area: Area3D) -> void:
 	if item_pos.get_child_count() > 0:
 		item_pos.get_child(0).take_damage(10.0)
+
+
+func _on_puddle_detector_area_entered(area: Area3D) -> void:
+	move_speed *= 2.0
+	acceleration *= 3.0
+	deceleration /= 3.0
+
+
+func _on_puddle_detector_area_exited(area: Area3D) -> void:
+	move_speed /= 2.0
+	acceleration /= 3.0
+	deceleration *= 3.0
