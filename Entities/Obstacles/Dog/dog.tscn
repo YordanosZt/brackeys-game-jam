@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://lkuvduowuktr"]
+[gd_scene load_steps=7 format=3 uid="uid://lkuvduowuktr"]
 
 [ext_resource type="Script" path="res://Entities/Obstacles/Dog/dog.gd" id="1_1ad6q"]
+[ext_resource type="Material" uid="uid://bg8mb72pem86x" path="res://Shaders/perfect_outline.tres" id="2_fn8nx"]
 [ext_resource type="PackedScene" uid="uid://bu3u3f2nxqptd" path="res://Reusables/Triggers/hit_box.tscn" id="2_xh35s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0q38"]
+next_pass = ExtResource("2_fn8nx")
 albedo_color = Color(0.360034, 0.0272498, 0.198835, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bc24"]
+next_pass = ExtResource("2_fn8nx")
 albedo_color = Color(0.941809, 0.308305, 0.594328, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xmepy"]

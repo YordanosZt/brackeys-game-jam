@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://brb6rjd4g0cng"]
+[gd_scene load_steps=6 format=3 uid="uid://brb6rjd4g0cng"]
 
 [ext_resource type="Script" path="res://Reusables/Item/delivery_item.gd" id="1_4kpwo"]
+[ext_resource type="Material" uid="uid://bg8mb72pem86x" path="res://Shaders/perfect_outline.tres" id="2_8fi3p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_txmds"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lw70g"]
+next_pass = ExtResource("2_8fi3p")
 albedo_color = Color(0.211765, 0.54902, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0app8"]

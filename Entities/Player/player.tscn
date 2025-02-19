@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://lucm30hvu5ua"]
+[gd_scene load_steps=9 format=3 uid="uid://lucm30hvu5ua"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_5246q"]
+[ext_resource type="Material" uid="uid://bg8mb72pem86x" path="res://Shaders/perfect_outline.tres" id="2_l1cfr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sygap"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nqd43"]
 radius = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5m0ka"]
+next_pass = ExtResource("2_l1cfr")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ui2dn"]
 
@@ -27,7 +31,7 @@ shape = SubResource("CapsuleShape3D_sygap")
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866026, 0.5, -0.707107, -0.353553, 0.612372, 0, 1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
 projection = 1
 size = 20.0
 near = 0.001
@@ -50,6 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="BodyMesh" type="MeshInstance3D" parent="RotatePivot/Visuals"]
+material_override = SubResource("StandardMaterial3D_5m0ka")
 mesh = SubResource("CapsuleMesh_ui2dn")
 skeleton = NodePath("../../..")
 

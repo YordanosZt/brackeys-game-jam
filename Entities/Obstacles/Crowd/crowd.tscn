@@ -1,13 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://cv1htmqwp4c0"]
+[gd_scene load_steps=16 format=3 uid="uid://cv1htmqwp4c0"]
 
 [ext_resource type="Script" path="res://Entities/Obstacles/Crowd/crowd.gd" id="1_se4ye"]
+[ext_resource type="Material" uid="uid://bg8mb72pem86x" path="res://Shaders/perfect_outline.tres" id="2_q84r1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8weqj"]
+next_pass = ExtResource("2_q84r1")
 albedo_color = Color(0.24, 0.582, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g5mca"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oatbf"]
+next_pass = ExtResource("2_q84r1")
 albedo_color = Color(0, 0.839085, 0.241516, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fqogt"]
@@ -15,27 +18,32 @@ radius = 0.64
 height = 1.81
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0on3b"]
+next_pass = ExtResource("2_q84r1")
 albedo_color = Color(0.62, 0.24, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5g5p3"]
+next_pass = ExtResource("2_q84r1")
 albedo_color = Color(0.867669, 0.639922, 0.480239, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cbmnq"]
 height = 2.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2e7lx"]
+next_pass = ExtResource("2_q84r1")
 albedo_color = Color(0.245734, 0.106922, 8.42288e-08, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rbud4"]
 height = 1.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c0qk"]
+next_pass = ExtResource("2_q84r1")
 albedo_color = Color(1, 0.24, 0.24, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_m41q8"]
 height = 1.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgwk3"]
+next_pass = ExtResource("2_q84r1")
 albedo_color = Color(0.408164, 0.778423, 0.66026, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vti46"]
