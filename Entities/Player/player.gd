@@ -48,9 +48,14 @@ func move(delta) -> void:
 	if direction:
 		velocity.x = move_toward(velocity.x, direction.x * move_speed, acceleration * delta)
 		velocity.z = move_toward(velocity.z, direction.y * move_speed, acceleration * delta)
+		
+		rotate_pivot.rotation_degrees.x = move_toward(rotate_pivot.rotation_degrees.x, -15.0, 40.0 * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
 		velocity.z = move_toward(velocity.z, 0, deceleration * delta)
+		
+		rotate_pivot.rotation_degrees.x = move_toward(rotate_pivot.rotation_degrees.x, 0.0, 40.0 * delta)
+
 	
 	speed_label.text = "Speed: " + str(int(velocity.length() * 100) / 100.0)
 
