@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	handle_pause()
+	handle_restart()
 	
 	if current_time > 0:
 		handle_time_pressure(delta)
@@ -21,6 +22,10 @@ func handle_pause() -> void:
 		is_paused = !is_paused
 		Engine.time_scale = 0 if is_paused else 1
 		pause_menu.visible = is_paused
+
+func handle_restart() -> void:
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
 
 func handle_time_pressure(delta) -> void:
 	current_time -= delta
