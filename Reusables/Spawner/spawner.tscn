@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqsr6amxf6wgr"]
+[gd_scene load_steps=4 format=3 uid="uid://cqsr6amxf6wgr"]
 
 [ext_resource type="Script" path="res://Reusables/Spawner/spawner.gd" id="1_64upg"]
+[ext_resource type="PackedScene" uid="uid://bu3u3f2nxqptd" path="res://Reusables/Triggers/hit_box.tscn" id="2_80ka3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_udsox"]
+size = Vector3(12.679, 1, 1)
 
 [node name="Spawner" type="Node3D" node_paths=PackedStringArray("spawn_pts")]
 script = ExtResource("1_64upg")
@@ -23,5 +27,16 @@ size = Vector3(12.7675, 5.01965, 3.5293)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="HitBox" parent="." instance=ExtResource("2_80ka3")]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36511, 2.03958, -27.5895)
+shape = SubResource("BoxShape3D_udsox")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36511, 2.03958, 24.8486)
+shape = SubResource("BoxShape3D_udsox")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

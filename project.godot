@@ -70,3 +70,4 @@ jump={
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Obstacle"
 3d_physics/layer_4="DeliveryItem"
+3d_physics/layer_5="ObstacleHazard"
