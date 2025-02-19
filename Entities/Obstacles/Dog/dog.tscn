@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://lkuvduowuktr"]
+
+[ext_resource type="Script" path="res://Entities/Obstacles/Dog/dog.gd" id="1_1ad6q"]
+[ext_resource type="PackedScene" uid="uid://bu3u3f2nxqptd" path="res://Reusables/Triggers/hit_box.tscn" id="2_xh35s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0q38"]
+albedo_color = Color(0.360034, 0.0272498, 0.198835, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bc24"]
+albedo_color = Color(0.941809, 0.308305, 0.594328, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xmepy"]
+size = Vector3(1, 1, 1.71704)
+
+[node name="Dog" type="Node3D"]
+script = ExtResource("1_1ad6q")
+
+[node name="MovePivot" type="Marker3D" parent="."]
+
+[node name="Visuals" type="Node3D" parent="MovePivot"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MovePivot/Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.207275, 0)
+material_override = SubResource("StandardMaterial3D_c0q38")
+size = Vector3(1, 0.585449, 1.70679)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="MovePivot/Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.558472, 0.906128)
+material_override = SubResource("StandardMaterial3D_1bc24")
+size = Vector3(0.609619, 0.585449, 0.519531)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="MovePivot/Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.301086, -0.19397, 0.525482)
+material_override = SubResource("StandardMaterial3D_c0q38")
+size = Vector3(0.274414, 0.585449, 0.317566)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="MovePivot/Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.301086, -0.19397, 0.525482)
+material_override = SubResource("StandardMaterial3D_c0q38")
+size = Vector3(0.274414, 0.585449, 0.317566)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="MovePivot/Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.301086, -0.19397, -0.697906)
+material_override = SubResource("StandardMaterial3D_c0q38")
+size = Vector3(0.274414, 0.585449, 0.317566)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="MovePivot/Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.472717, -0.19397, 0.525482)
+material_override = SubResource("StandardMaterial3D_c0q38")
+size = Vector3(0.274414, 0.585449, 0.317566)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="MovePivot/Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.472717, -0.19397, -0.697906)
+material_override = SubResource("StandardMaterial3D_c0q38")
+size = Vector3(0.274414, 0.585449, 0.317566)
+
+[node name="HitBox" parent="MovePivot" instance=ExtResource("2_xh35s")]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovePivot/HitBox"]
+shape = SubResource("BoxShape3D_xmepy")

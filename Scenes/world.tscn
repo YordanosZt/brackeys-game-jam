@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://depptuwko0flo"]
+[gd_scene load_steps=24 format=3 uid="uid://depptuwko0flo"]
 
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_118dv"]
 [ext_resource type="Texture2D" uid="uid://ck5ilcyatnqww" path="res://Assets/Textures/Prototype/Dark/texture_09.png" id="1_vxdwd"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cv1htmqwp4c0" path="res://Entities/Obstacles/Crowd/crowd.tscn" id="7_v5sha"]
 [ext_resource type="PackedScene" uid="uid://cqsr6amxf6wgr" path="res://Reusables/Spawner/spawner.tscn" id="8_2xre1"]
 [ext_resource type="PackedScene" uid="uid://ba4o2w5oylmo3" path="res://Entities/Obstacles/Car/car.tscn" id="9_0q6y6"]
+[ext_resource type="PackedScene" uid="uid://lkuvduowuktr" path="res://Entities/Obstacles/Dog/dog.tscn" id="10_ytiwx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6uwx3"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -106,6 +107,13 @@ _data = {
 "fadeout": SubResource("Animation_08yc4")
 }
 
+[sub_resource type="Curve3D" id="Curve3D_70t38"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.109234, 0, -16.4945, 0, 0, 0, 0, 0, 0, -0.327705, 0, 15.9483, 0, 0, 0, 0, 0, 0, 16.1668, 0, 16.0575, 0, 0, 0, 0, 0, 0, 15.8391, 0, -16.276, 0, 0, 0, 0, 0, 0, -0.109234, 0, -16.4945),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_118dv")
 
@@ -117,7 +125,7 @@ transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_awfes")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58435, 0.445016, -1.31812)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.31482, 0.445016, -3.00269)
 
 [node name="Env" type="Node3D" parent="."]
 
@@ -347,3 +355,13 @@ show_percentage = false
 [node name="CarSpawner" parent="." instance=ExtResource("8_2xre1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.51642, 0, 0)
 spawn_item = ExtResource("9_0q6y6")
+
+[node name="Dog" parent="." node_paths=PackedStringArray("path") instance=ExtResource("10_ytiwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.3276, 1, 6.61414)
+path = NodePath("Path3D/PathFollow3D")
+
+[node name="Path3D" type="Path3D" parent="Dog"]
+curve = SubResource("Curve3D_70t38")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Dog/Path3D"]
+transform = Transform3D(-0.999977, 0, 0.00673399, 0, 1, 0, -0.00673399, 0, -0.999977, -0.109234, 0, -16.4945)
