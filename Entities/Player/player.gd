@@ -7,7 +7,7 @@ var deceleration: float = 5.0
 var random_effects_count: int = 3
 var rand_effect_idx: int = 0
 var has_effect: bool = false
-var allow_effect: bool = true
+@export var allow_effect: bool = true
 
 var input_dir: Vector2
 var direction: Vector2
