@@ -48,7 +48,7 @@ unique_name_in_owner = true
 
 [node name="ItemPos" type="Marker3D" parent="RotatePivot"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.2)
 
 [node name="Visuals" type="Node3D" parent="RotatePivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

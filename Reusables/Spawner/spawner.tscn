@@ -8,7 +8,7 @@
 next_pass = ExtResource("2_eoj5x")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_udsox"]
-size = Vector3(12.679, 1, 1)
+size = Vector3(35.9205, 1, 1)
 
 [node name="Spawner" type="Node3D" node_paths=PackedStringArray("spawn_pts")]
 script = ExtResource("1_64upg")

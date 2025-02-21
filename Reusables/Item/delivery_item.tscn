@@ -1,26 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://brb6rjd4g0cng"]
+[gd_scene load_steps=7 format=3 uid="uid://brb6rjd4g0cng"]
 
 [ext_resource type="Script" path="res://Reusables/Item/delivery_item.gd" id="1_4kpwo"]
 [ext_resource type="Material" uid="uid://bg8mb72pem86x" path="res://Shaders/perfect_outline.tres" id="2_8fi3p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_txmds"]
+size = Vector3(0.982666, 1.21973, 1.00195)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lw70g"]
 next_pass = ExtResource("2_8fi3p")
 albedo_color = Color(0.211765, 0.54902, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0app8"]
+size = Vector3(1.5, 1, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ajsp"]
 
 [node name="DeliveryItem" type="Area3D"]
 collision_layer = 8
 script = ExtResource("1_4kpwo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469482, 0)
 shape = SubResource("BoxShape3D_txmds")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.656023, 0, 0, 0, 0.710306, 0, 0, 0, 0.683423, 0, 0.217297, 0)
 material_override = SubResource("StandardMaterial3D_lw70g")
 mesh = SubResource("BoxMesh_0app8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.656023, 0, 0, 0, 0.710306, 0, 0, 0, 0.683423, 0, 0.73212, 0)
+material_override = SubResource("StandardMaterial3D_lw70g")
+mesh = SubResource("BoxMesh_2ajsp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
