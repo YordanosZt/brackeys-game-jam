@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://depptuwko0flo"]
+[gd_scene load_steps=61 format=4 uid="uid://depptuwko0flo"]
 
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_118dv"]
 [ext_resource type="Texture2D" uid="uid://ck5ilcyatnqww" path="res://Assets/Textures/Prototype/Dark/texture_09.png" id="1_vxdwd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bf4sow5ssn87n" path="res://Assets/Brackey's Game Jam.png" id="4_wlnsc"]
 [ext_resource type="PackedScene" uid="uid://cnu1ovuvexvsk" path="res://Reusables/Triggers/delivery_place.tscn" id="5_jyu0a"]
 [ext_resource type="Material" uid="uid://bg8mb72pem86x" path="res://Shaders/perfect_outline.tres" id="5_lf8yg"]
+[ext_resource type="Texture2D" uid="uid://buwvfxf8p4yd3" path="res://Assets/Textures/grass.png" id="5_phnon"]
 [ext_resource type="PackedScene" uid="uid://cv1htmqwp4c0" path="res://Entities/Obstacles/Crowd/crowd.tscn" id="7_v5sha"]
 [ext_resource type="PackedScene" uid="uid://cqsr6amxf6wgr" path="res://Reusables/Spawner/spawner.tscn" id="8_2xre1"]
 [ext_resource type="PackedScene" uid="uid://ba4o2w5oylmo3" path="res://Entities/Obstacles/Car/car.tscn" id="9_0q6y6"]
@@ -40,6 +41,11 @@ albedo_texture = ExtResource("4_wlnsc")
 albedo_texture = ExtResource("1_vxdwd")
 uv1_scale = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6vx3h"]
+albedo_color = Color(0.144, 0.8, 0.2424, 1)
+albedo_texture = ExtResource("5_phnon")
+uv1_scale = Vector3(200, 100, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3lv8g"]
 size = Vector3(500, 1, 500)
@@ -207,6 +213,15 @@ albedo_color = Color(0.878605, 0.512867, 0.303919, 1)
 next_pass = ExtResource("5_lf8yg")
 albedo_color = Color(0.459504, 0.693594, 0.379644, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4qj3"]
+next_pass = ExtResource("5_lf8yg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh7d0"]
+next_pass = ExtResource("5_lf8yg")
+albedo_color = Color(0.77, 0.62447, 0.2849, 1)
+albedo_texture = ExtResource("5_phnon")
+uv1_scale = Vector3(10, 10, 10)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ded8v"]
 resource_name = "Material.001"
 cull_mode = 2
@@ -265,10 +280,17 @@ allow_effect = false
 
 [node name="Ground2" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 106.72, 0, 161.393)
+visible = false
 material_override = SubResource("StandardMaterial3D_fjsos")
 use_collision = true
 size = Vector3(138.326, 1, 500)
 material = SubResource("StandardMaterial3D_a13nc")
+
+[node name="Ground3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 106.72, 0, 161.393)
+material_override = SubResource("StandardMaterial3D_6vx3h")
+use_collision = true
+size = Vector3(138.326, 1, 500)
 
 [node name="Env" type="Node3D" parent="."]
 visible = false
@@ -792,13 +814,13 @@ use_collision = true
 size = Vector3(10.1822, 10.8397, 16.2902)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Graybox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 327.358, 1.34579, 124.675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 323.082, 1.34579, 122.138)
 material_override = SubResource("StandardMaterial3D_npgw5")
 use_collision = true
 radius = 8.66846
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Graybox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 327.358, 2.61241, 124.675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 323.082, 2.61241, 122.138)
 material_override = SubResource("StandardMaterial3D_npgw5")
 use_collision = true
 radius = 5.18527
@@ -1119,6 +1141,117 @@ transform = Transform3D(2.76972, 0, 0, 0, 1, 0, 0, 0, 1, -63.0407, 3.27186, 218.
 use_collision = true
 size = Vector3(1.3741, 6.23505, 3.0874)
 
+[node name="CSGBox3D" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.448, 1.35162, 177.723)
+material_override = SubResource("StandardMaterial3D_j4qj3")
+use_collision = true
+size = Vector3(1, 3.70325, 37.6585)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.695, 1.35162, 160.407)
+material_override = SubResource("StandardMaterial3D_j4qj3")
+use_collision = true
+size = Vector3(1, 3.70325, 37.6585)
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(0.670893, 0, -0.741554, 0, 1, 0, 0.741554, 0, 0.670893, 153.479, 1.35162, 158.312)
+material_override = SubResource("StandardMaterial3D_j4qj3")
+use_collision = true
+size = Vector3(1, 3.70325, 28.7923)
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(0.0883381, 0, -0.996091, 0, 1, 0, 0.996091, 0, 0.0883381, 129.295, 1.35162, 168.311)
+material_override = SubResource("StandardMaterial3D_j4qj3")
+use_collision = true
+size = Vector3(1, 3.70325, 28.7923)
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(0.19343, 0, -0.981114, 0, 1, 0, 0.981114, 0, 0.19343, 180.524, 1.35162, 145.46)
+material_override = SubResource("StandardMaterial3D_j4qj3")
+use_collision = true
+size = Vector3(1, 3.70325, 37.6585)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 84.2744, 1.31104, 195.67)
+material_override = SubResource("StandardMaterial3D_j4qj3")
+use_collision = true
+size = Vector3(1, 3.62207, 48.2848)
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8711, 0.484414, 116.19)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(19.2684, 0.223145, 6.99115)
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2849, 0.484414, 121.244)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(6.44073, 0.223145, 6.48623)
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5175, 0.484414, 121.522)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(80.0288, 0.223145, 5.93203)
+
+[node name="CSGBox3D51" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.8157, 0.484414, 153.17)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(7.43223, 0.223145, 58.9107)
+
+[node name="CSGBox3D52" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.2466, 0.484414, 178.962)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(69.805, 0.223145, 7.3263)
+
+[node name="CSGBox3D53" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.086, 0.484414, 203.646)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(9.48372, 0.223145, 42.3394)
+
+[node name="CSGBox3D54" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.0411, 0.484414, 220.198)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(95.5643, 0.223145, 9.23465)
+
+[node name="CSGBox3D55" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.634, 0.484414, 202.319)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(10.378, 0.223145, 29.6969)
+
+[node name="CSGBox3D56" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.555, 0.484414, 192.754)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(44.6763, 0.223145, 10.5662)
+
+[node name="CSGBox3D57" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169.675, 0.484414, 212.665)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(10.4361, 0.223145, 30.3539)
+
+[node name="CSGBox3D58" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 253.778, 0.484414, 203.694)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(162.294, 0.223145, 10.0188)
+
+[node name="CSGBox3D59" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 323.447, 0.484414, 168.991)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(12.6546, 0.223145, 60.5787)
+
+[node name="CSGBox3D60" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 259.831, 0.484414, 122.339)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(12.6546, 0.223145, 90.1674)
+
+[node name="CSGBox3D61" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(-1, -4.37114e-08, 2.98023e-08, -4.37114e-08, 1, -4.37114e-08, -2.98023e-08, -4.37114e-08, -1, 238.951, 0.484415, 148.678)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(12.6546, 0.223145, 43.8181)
+
+[node name="CSGBox3D62" type="CSGBox3D" parent="Graybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 323.432, 0.484414, 122.647)
+material_override = SubResource("StandardMaterial3D_sh7d0")
+size = Vector3(39.7492, 0.223145, 31.7553)
+
 [node name="DeliveryItem" parent="." instance=ExtResource("4_a2wja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.298, 0.751019, 158.736)
 
@@ -1133,6 +1266,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree01/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree01/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1156,6 +1290,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree03/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree03/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1179,6 +1314,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree04/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree04/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1202,6 +1338,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree05/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree05/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1225,6 +1362,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree06/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree06/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1248,6 +1386,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree07/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree07/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1271,6 +1410,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree08/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree08/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1294,6 +1434,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree09/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree09/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1317,6 +1458,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree10/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree10/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1340,6 +1482,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree11/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree11/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1363,6 +1506,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree12/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree12/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1386,6 +1530,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree13/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree13/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1409,6 +1554,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree14/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree14/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1432,6 +1578,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree15/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree15/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1455,6 +1602,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree16/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree16/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1478,6 +1626,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree17/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree17/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1501,6 +1650,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree18/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree18/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1524,6 +1674,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree19/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree19/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1547,6 +1698,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree20/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree20/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1570,6 +1722,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree21/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree21/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1593,6 +1746,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree22/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree22/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1616,6 +1770,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree23/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree23/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1639,6 +1794,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree24/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree24/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1662,6 +1818,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree25/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree25/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1685,6 +1842,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree26/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree26/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1708,6 +1866,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree27/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree27/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1731,6 +1890,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree28/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree28/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1754,6 +1914,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree29/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree29/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1777,6 +1938,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree30/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree30/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1800,6 +1962,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree31/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree31/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1823,6 +1986,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree32/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree32/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1846,6 +2010,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree33/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree33/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1869,6 +2034,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree34/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree34/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1892,6 +2058,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree35/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree35/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1915,6 +2082,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree38/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree38/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1938,6 +2106,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree39/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree39/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1961,6 +2130,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree40/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree40/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -1984,6 +2154,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree41/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree41/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -2007,6 +2178,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree42/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree42/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -2030,6 +2202,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree43/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree43/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -2053,6 +2226,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree44/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree44/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -2076,6 +2250,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree45/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree45/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -2099,6 +2274,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree46/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree46/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -2122,6 +2298,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree47/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree47/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -2145,6 +2322,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree48/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree48/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -2168,6 +2346,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree49/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree49/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -2191,6 +2370,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree36/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree36/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -2214,6 +2394,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree37/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree37/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -2237,6 +2418,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree51/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree51/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -2260,6 +2442,7 @@ transform = Transform3D(0.841156, 0, -0.538399, 1.19549e-16, 0.998708, 1.86774e-
 [node name="_7" type="Node3D" parent="Trees/Tree50/Visual"]
 
 [node name="Object_12" type="MeshInstance3D" parent="Trees/Tree50/Visual/_7"]
+material_overlay = ExtResource("5_lf8yg")
 mesh = SubResource("ArrayMesh_4lk6u")
 skeleton = NodePath("")
 
@@ -2273,5 +2456,109 @@ collision_layer = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/Tree50/HitBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.87891, 0.503006)
 shape = SubResource("BoxShape3D_byaqg")
+
+[node name="Crowds" type="Node3D" parent="."]
+
+[node name="Crowd" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 208.993, 0.339562, 193.997)
+
+[node name="Crowd2" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.046, 0.339562, 204.843)
+
+[node name="Crowd3" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214.88, 0.339562, 211.385)
+
+[node name="Crowd4" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.79, 0.339562, 199.473)
+
+[node name="Crowd5" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229.378, 0.339562, 193.194)
+
+[node name="Crowd6" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230.855, 0.339562, 209.076)
+
+[node name="Crowd7" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 240.366, 0.339562, 193.286)
+
+[node name="Crowd8" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.6, 0.339562, 208.984)
+
+[node name="Crowd9" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 252.797, 0.339562, 195.445)
+
+[node name="Crowd11" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 270.159, 0.339562, 195.495)
+
+[node name="Crowd12" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 270.635, 0.339562, 207.152)
+
+[node name="Crowd13" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 281.809, 0.339562, 207.613)
+
+[node name="Crowd14" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 285.779, 0.339562, 196.071)
+
+[node name="Crowd15" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 292.982, 0.339562, 203.643)
+
+[node name="Crowd16" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 298.48, 0.339562, 193.801)
+
+[node name="Crowd17" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 306.082, 0.339562, 194.819)
+
+[node name="Crowd18" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 302.756, 0.339562, 209.684)
+
+[node name="Crowd19" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 315.177, 0.339562, 202.353)
+
+[node name="Crowd20" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 323.578, 0.339562, 191.582)
+
+[node name="Crowd21" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 330.902, 0.339562, 208.816)
+
+[node name="Crowd22" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 329.933, 0.339562, 181.997)
+
+[node name="Crowd23" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 316.032, 0.339562, 181.911)
+
+[node name="Crowd24" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.043, 0.339562, 215.95)
+
+[node name="Crowd25" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.156, 0.339562, 185.324)
+
+[node name="Crowd26" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.144, 0.339562, 186.204)
+
+[node name="Crowd27" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.136, 0.339562, 216.536)
+
+[node name="Crowd28" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.0753, 0.497731, 188.668)
+
+[node name="Crowd29" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2156, 0.497731, 190.161)
+
+[node name="Crowd30" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2337, 0.497731, 194.233)
+
+[node name="Crowd31" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.8219, 0.497731, 193.487)
+
+[node name="Crowd32" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.4101, 0.497731, 194.437)
+
+[node name="Crowd33" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.3649, 0.497731, 198.17)
+
+[node name="Crowd10" parent="Crowds" instance=ExtResource("7_v5sha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1253, 0, 0.0498962)
+
+[node name="DeliveryPlace" parent="." instance=ExtResource("5_jyu0a")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 191.445, 0, 111.698)
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
